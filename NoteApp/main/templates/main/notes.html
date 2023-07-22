@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<a href="{% url 'logout' %}">Logout</a>
+
+
+<h1>List of My Notes</h1>
+<a href="{% url 'create-note' %}">Add Note</a>
+<br>
+	<br>
+{% for note in notes %}
+	<p>{{note}}</a>
+	<a href="{% url 'note-detail' note.id %}"> View</a>
+	<a href="{% url 'note-delete' note.id %}"> Delete</a>
+
+	
+
+{% empty %}
+	<h3>No Notes</h3>
+
+{% endfor %}
+
+{% endblock content %}
